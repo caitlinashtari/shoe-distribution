@@ -1,3 +1,18 @@
+<% if @shoe.stores().any?() %>
+  <h3><%= @shoe.name() %> is sold at:</h3>
+
+<div class="card-panel teal lighten-2">
+
+    <ul>
+      <% @shoe.stores().each() do |store| %>
+        <li><a href="/stores/<%= store.id() %>"><%= store.name() %></li>
+      <% end %>
+    </ul>
+
+  <% else %>
+    <p>Not sold in stores.</p>
+  <% end %>
+</div>
 
 <h1>Add <%= @shoe.name %> to a store:</h1>
 
@@ -12,4 +27,7 @@
   <button class="btn-floating btn-large waves-effect waves-light red" type="submit">Add Shoe to Store</button>
 </form>
 
-<a href="/" class="waves-effect waves-teal btn-flat">Home</a>
+
+<div class="store-links">
+  <a href="/" class="waves-effect waves-teal btn-flat">Home</a>
+</div>
