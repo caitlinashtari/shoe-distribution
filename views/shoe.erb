@@ -1,0 +1,11 @@
+
+<h1>Add <%= @shoe.name %> to a store:</h1>
+
+<label for="stylist_id">Select a Store:</label>
+<div class="input-field">
+  <select class="browser-default" id='store_id' name='store_id' type='text'>
+    <% @stores.each() do |store| %>
+      <option value="<%= store.id()%>"> <%= store.name() %> </option>
+    <% end %>
+  </select>
+</div>

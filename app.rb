@@ -6,6 +6,7 @@ Bundler.require(:default)
 
 get('/') do
   @stores = Store.all()
+  @shoes = Shoe.all()
   erb(:index)
 end
 
@@ -14,6 +15,7 @@ post('/stores') do
   @store = Store.create({:name => name})
   if @store.save
     @stores = Store.all
+    @shoes = Shoe.all
     erb(:index)
   else
     erb(:error)
@@ -41,17 +43,15 @@ delete('/stores/:id') do
   @store = Store.find(params.fetch('id').to_i)
   @store.delete
   @stores = Store.all
+  @shoes = Shoe.all
   erb(:index)
 end
 
 post('/shoes') do
   name = params.fetch('shoe_name')
-  store_id = params.fetch('store_id').to_i
-  @store = Store.find(store_id)
-  @shoe = @store.shoes.create({:name => name})
+  @shoe = Shoe.create({:name => name})
   if @shoe.save
     @shoes= Shoe.all
-    @stores = Store.all
     erb(:index)
   else
     erb(:error)
