@@ -1,6 +1,6 @@
-# _Project_
+# _Shoe Distribution_
 
-#### By _**Kenneth Black**, MM/DD/YYYY_
+#### By _**Caitlin Ashtari**, 12/16/1988_
 
 ## Description
 
@@ -14,8 +14,8 @@
 
 ## Setup/Installation Requirements
 
-* Clone this repo: `git clone git@github.com:lawlietblack/{repo}.git`
-* Change to the repo directory: `cd {repo}`
+* Clone this repo: `git clone git@github.com:caitlinashtari/shoe-distribution.git`
+* Change to the repo directory: `cd shoe-distribution`
 * Install gems: `bundle install --path vendor/bundle`
 * Install the database: *instruction below*
 * Run the app: `ruby app.rb`
@@ -35,4 +35,4 @@ _Ruby, Sinatra, SQL, Postgres, JavaScript, MaterializeCSS, jQuery_
 
 *MIT License*
 
-Copyright (c) 2016 **_Kenneth Black_**
+Copyright (c) 2016 **_Caitlin Ashtari_**
