@@ -1,0 +1,52 @@
+<h1>Shoe Distribuition Center</h1>
+
+<div class="card-panel teal lighten-2">
+  <h4>Add A Store</h4>
+
+  <form action="/stores" method="post">
+    <label for="store_name">Store Name:</label>
+    <input id="store_name" name="store_name" type="text">
+
+    <button class="btn-floating btn-large waves-effect waves-light red" type="submit">Add Store</button>
+  </form>
+
+  <br>
+
+  <h4> Add A Shoe</h4>
+
+  <form action="/shoes" method="post">
+
+    <label for="shoe_name">Shoe Name:</label>
+    <input id="shoe_name" name="shoe_name" type="text">
+
+    <label for="stylist_id">Select a Store:</label>
+    <div class="input-field">
+      <select class="browser-default" id='store_id' name='store_id' type='text'>
+        <% @stores.each() do |store| %>
+          <option value="<%= store.id()%>"> <%= store.name() %> </option>
+        <% end %>
+      </select>
+    </div>
+
+    <br>
+
+    <button class="btn-floating btn-large waves-effect waves-light red" type="submit">Add Shoe</button>
+  </form>
+</div>
+
+<div class ="all-stores">
+  <% if @stores.any?() %>
+  <h5>Click on a store to see its shoes</h5>
+
+  <ul class ="collection">
+    <% @stores.each do |store| %>
+    <li><a href="/stores/<%= store.id() %>" class="collection-item"><%= store.name() %></a></li>
+    <% end %>
+  </ul>
+
+  <% else %>
+  <p>There are no stores yet!</p>
+  <% end %>
+
+  <a href="/shoes" class="waves-effect waves-teal btn-flat">View All Shoes</a>
+</div>
