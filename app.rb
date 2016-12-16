@@ -72,5 +72,5 @@ post('/shoes/:id') do
   add_shoe = @store.shoes.push(@shoe)
   @stores = Store.all
   @shoes = Shoe.all
-  erb(:index)
+  erb(:shoe)
 end
