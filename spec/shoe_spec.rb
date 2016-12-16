@@ -1,5 +1,5 @@
 require('spec_helper')
 
-describe Shoe do
-
+describe(Shoe) do
+  it { should have_many(:stores) }
 end
