@@ -1,33 +1,36 @@
-<% if @shoe.stores().any?() %>
-  <h3><%= @shoe.name() %> is sold at:</h3>
+<div class="content">
+  <% if @shoe.stores().any?() %>
+    <h3><%= @shoe.name() %> is sold at:</h3>
 
-<div class="card-panel teal lighten-2">
+  <div class="card-panel red lighten-1">
 
-    <ul>
-      <% @shoe.stores().each() do |store| %>
-        <li><a href="/stores/<%= store.id() %>"><%= store.name() %></a></li>
-      <% end %>
-    </ul>
+      <ul>
+        <% @shoe.stores().each() do |store| %>
+          <li><a href="/stores/<%= store.id() %>" class="collection-item white-text"><%= store.name() %></a></li>
+        <% end %>
+      </ul>
 
-  <% else %>
-    <p>Not sold in stores.</p>
-  <% end %>
+    <% else %>
+      <p>Not sold in stores.</p>
+    <% end %>
+  </div>
+
+  <h4>Add <%= @shoe.name %> to a store:</h4>
+
+  <form action="/shoes/<%= @shoe.id %>" method="post">
+    <div class="input-field">
+      <select class="browser-default" id='store_id' name='store_id' type='text'>
+        <% @stores.each() do |store| %>
+          <option value="<%= store.id()%>"> <%= store.name() %> </option>
+        <% end %>
+      </select>
+    </div>
+    <br>
+    <button class="btn-floating btn-large waves-effect waves-light red" type="submit">Add Shoe to Store</button>
+  </form>
 </div>
 
-<h1>Add <%= @shoe.name %> to a store:</h1>
 
-<form action="/shoes/<%= @shoe.id %>" method="post">
-  <div class="input-field">
-    <select class="browser-default" id='store_id' name='store_id' type='text'>
-      <% @stores.each() do |store| %>
-        <option value="<%= store.id()%>"> <%= store.name() %> </option>
-      <% end %>
-    </select>
-  </div>
-  <button class="btn-floating btn-large waves-effect waves-light red" type="submit">Add Shoe to Store</button>
-</form>
-
-
-<div class="store-links">
+<div class="footer-links">
   <a href="/" class="waves-effect waves-teal btn-flat">Home</a>
 </div>

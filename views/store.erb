@@ -1,22 +1,22 @@
-<% if @store.shoes().any?() %>
+<div class="content">
+  <% if @store.shoes().any?() %>
   <h3>Here are <%= @store.name() %>'s shoes:</h3>
 
-<div class="card-panel teal lighten-2">
+  <div class="card-panel red lighten-1">
+      <ul>
+        <% @store.shoes().each() do |shoe| %>
+          <li><a href="/shoes/<%= shoe.id() %>" class="collection-item white-text"><%= shoe.name() %></li>
+        <% end %>
+      </ul>
 
-    <ul>
-      <% @store.shoes().each() do |shoe| %>
-        <li><a href="/shoes/<%= shoe.id() %>"><%= shoe.name() %></li>
-      <% end %>
-    </ul>
-
-  <% else %>
-    <p>There are no shoes at this store!</p>
-  <% end %>
-</div>
+    <% else %>
+      <p>There are no shoes at this store!</p>
+    <% end %>
+  </div>
 
 
-<div class="store-links">
-  <a href="/" class="waves-effect waves-teal btn-flat">Home</a>
+  <div class="footer-links">
+    <a href="/" class="waves-effect waves-teal btn-flat">Home</a>
 
-  <p><a href="/stores/<%= @store.id() %>/edit" class="waves-effect waves-teal btn-flat">Edit <%= @store.name() %>'s Info</a></p>
-</div>
+    <p><a href="/stores/<%= @store.id() %>/edit" class="waves-effect waves-teal btn-flat">Edit <%= @store.name() %>'s Info</a></p>
+  </div>

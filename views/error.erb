@@ -1,7 +1,9 @@
-<h3>Oops there were some errors:</h3>
-<ul>
-  <% @store.errors().full_messages().each() do |message| %>
-    <li><%= message %></li>
-  <% end %>
-</ul>
-<h5><a href="/" >Return to main page to try again</a></h5>
+<div class="content">
+  <h3>Oops there were some errors:</h3>
+  <ul>
+    <% @store.errors().full_messages().each() do |message| %>
+      <li class="red-text"><%= message %></li>
+    <% end %>
+  </ul>
+  <h5><a href="/" class="black-text">Return to main page to try again</a></h5>
+</div

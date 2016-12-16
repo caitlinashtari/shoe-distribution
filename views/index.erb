@@ -1,6 +1,4 @@
-<h1>Shoe Distribuition Center</h1>
-
-<div class="card-panel teal lighten-2">
+<div class="content">
   <h4>Add A Store</h4>
 
   <form action="/stores" method="post">
@@ -25,11 +23,11 @@
 
 <div class ="all-stores">
   <% if @stores.any?() %>
-  <h5>Click on a store to see its shoes or update</h5>
+  <h5>Click Store to View Store Merchandise/Update</h5>
 
-  <ul class ="collection">
+  <ul class ="card-panel red lighten-1">
     <% @stores.each do |store| %>
-    <li><a href="/stores/<%= store.id() %>" class="collection-item"><%= store.name() %></a></li>
+    <li><a href="/stores/<%= store.id() %>" class="collection-item white-text"><%= store.name() %></a></li>
     <% end %>
   </ul>
 
@@ -38,11 +36,11 @@
   <% end %>
 
   <% if @shoes.any?() %>
-  <h5>Click on a shoe to see where it's sold or assign it to a store</h5>
+  <h5>Click Brand to View Location/Assign Location</h5>
 
-  <ul class ="collection">
+  <ul class ="card-panel red lighten-1">
     <% @shoes.each do |shoe| %>
-    <li><a href="/shoes/<%= shoe.id() %>" class="collection-item"><%= shoe.name() %></a></li>
+    <li><a href="/shoes/<%= shoe.id() %>" class="collection-item white-text"><%= shoe.name() %></a></li>
     <% end %>
   </ul>
 

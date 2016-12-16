@@ -1,22 +1,25 @@
-<h1>Update <%=@store.name() %></h1>
+<div class="content">
+  <h1>Update <%=@store.name() %></h1>
 
-<div class="card-panel teal lighten-2">
+  <div <div class="card-panel red lighten-1">
 
-  <form action="/stores/<%= @store.id() %>" method="post">
-    <input name="_method" type="hidden" value="patch">
+    <form action="/stores/<%= @store.id() %>" method="post">
+      <input name="_method" type="hidden" value="patch">
 
-    <label for="store_name">Name:</label>
-    <input id="store_name" name="store_name" type="text">
+      <label for="store_name">Name:</label>
+      <input id="store_name" name="store_name" type="text">
 
-    <button type="submit" class="btn-floating btn-large waves-effect waves-light red">Update</button>
-  </form>
+      <button type="submit" class="btn-floating btn-large waves-effect waves-light red">Update</button>
+    </form>
 
+  </div>
 </div>
 
-<form action="/stores/<%= @store.id() %>" method="post"  id="delete-button">
-  <input name="_method" type="hidden" value="delete">
+<div class="footer-links">
+  <form action="/stores/<%= @store.id() %>" method="post"  id="delete-button">
+    <input name="_method" type="hidden" value="delete">
 
-  <button type="submit" class="waves-effect waves-teal btn-flat">Delete Store</button>
-</form>
-
+    <button type="submit" class="waves-effect waves-teal btn-flat">Delete Store</button>
+  </form>
   <a href="/" class="waves-effect waves-teal btn-flat">Home</a>
+</div>
