@@ -52,8 +52,25 @@ post('/shoes') do
   @shoe = Shoe.create({:name => name})
   if @shoe.save
     @shoes= Shoe.all
+    @stores = Store.all
     erb(:index)
   else
     erb(:error)
   end
+end
+
+get('/shoes/:id') do
+  @shoe = Shoe.find(params.fetch('id').to_i)
+  @stores = Store.all
+  erb(:shoe)
+end
+
+post('/shoes/:id') do
+  @shoe = Shoe.find(params.fetch('id').to_i)
+  store_id = params.fetch('store_id').to_i
+  @store = Store.find(store_id)
+  add_shoe = @store.shoes.push(@shoe)
+  @stores = Store.all
+  @shoes = Shoe.all
+  erb(:index)
 end
