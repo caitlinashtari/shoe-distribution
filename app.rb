@@ -37,6 +37,13 @@ patch('/stores/:id') do
   erb(:store)
 end
 
+delete('/stores/:id') do
+  @store = Store.find(params.fetch('id').to_i)
+  @store.delete
+  @stores = Store.all
+  erb(:index)
+end
+
 post('/shoes') do
   name = params.fetch('shoe_name')
   store_id = params.fetch('store_id').to_i
