@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20161216161447) do
+ActiveRecord::Schema.define(version: 20161216173023) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -21,11 +21,7 @@ ActiveRecord::Schema.define(version: 20161216161447) do
 
   create_table "shoes_stores", force: :cascade do |t|
     t.integer "shoe_id"
-    t.integer "integer_id"
     t.integer "store_id"
-    t.index ["integer_id"], name: "index_shoes_stores_on_integer_id", using: :btree
-    t.index ["shoe_id"], name: "index_shoes_stores_on_shoe_id", using: :btree
-    t.index ["store_id"], name: "index_shoes_stores_on_store_id", using: :btree
   end
 
   create_table "stores", force: :cascade do |t|
