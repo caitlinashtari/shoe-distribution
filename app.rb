@@ -20,6 +20,23 @@ post('/stores') do
   end
 end
 
+get('/stores/:id') do
+  @store = Store.find(params.fetch('id').to_i)
+  erb(:store)
+end
+
+get('/stores/:id/edit') do
+  @store = Store.find(params.fetch('id').to_i)
+  erb(:store_edit)
+end
+
+patch('/stores/:id') do
+  name = params.fetch('store_name')
+  @store = Store.find(params.fetch('id').to_i)
+  @store.update({:name => name})
+  erb(:store)
+end
+
 post('/shoes') do
   name = params.fetch('shoe_name')
   store_id = params.fetch('store_id').to_i
@@ -32,9 +49,4 @@ post('/shoes') do
   else
     erb(:error)
   end
-end
-
-get('/stores/:id') do
-  @store = Store.find(params.fetch('id').to_i)
-  erb(:store)
 end
